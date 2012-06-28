@@ -1,0 +1,15 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<!DOCTYPE legalnotice PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+]>
+<legalnotice>
+  <para>Copyright <trademark class="copyright"></trademark> 2006-2012 Red Hat, Inc., (http://www.redhat.com) </para>
+  <para/>
+  <para>GlusterFS has a dual licencing model for its source code</para>
+  <para/>
+  <para>On client side: </para>
+  <para>GlusterFS licensed to you under your choice of the GNU Lesser General Public License, version 3 or any later version (LGPLv3 or later), or the GNU General Public License, version 2 (GPLv2), in all cases as published by the Free Software Foundation.</para>
+  <para/>
+  <para>On server side: </para>
+  <para>GlusterFS is free software; you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation; either version 3 of the License, or (at your option) any later version.</para>
+  <para/>
+</legalnotice>

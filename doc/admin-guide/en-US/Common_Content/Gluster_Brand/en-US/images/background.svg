@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg width="10pt" height="882pt" viewBox="0 0 10 882" version="1.1" xmlns="http://www.w3.org/2000/svg">
+<path fill="#fafafa" d=" M 0.00 0.00 L 10.00 0.00 L 10.00 80.78 C 6.67 80.77 3.33 80.78 0.00 80.80 L 0.00 0.00 Z" />
+<path fill="#2d5c7e" d=" M 0.00 80.80 C 3.33 80.78 6.67 80.77 10.00 80.78 L 10.00 88.11 C 6.67 88.12 3.33 88.12 0.00 88.12 L 0.00 80.80 Z" />
+<path fill="#fafafa" d=" M 0.00 88.12 C 3.33 88.12 6.67 88.12 10.00 88.11 L 10.00 882.00 L 0.00 882.00 L 0.00 88.12 Z" />
+</svg>

@@ -1,0 +1,12 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+]>
+<section>
+  <title>We Need Feedback!</title>
+  <para/>
+  <para>If you find any issues, please open a bug on our Bugzilla - <ulink url="https://bugzilla.redhat.com/enter_bug.cgi?product=GlusterFS"/></para>
+  <para/>
+  <para><ulink url="http://www.gluster.org/interact/mailinglists/"/> - For details about mailing lists check out our community page</para>
+  <para/>
+  <para>If you want live help, join us on #gluster on freenode (IRC channel)</para>
+</section>

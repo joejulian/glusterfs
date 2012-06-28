@@ -1,0 +1,249 @@
+/* ============================================================
+
+	Project: Gluster Documentation 
+	Author: Cole Winans (@ColeWinans) of UpTrending, LLC.
+	Contact: Cole@UpTrending.com
+	Portfolio: Http://www.Uptrending.com
+	
+	Notes: Remember to create vector graphics for images,
+	as this CSS is also used for PDF generation.
+	
+	overrides.css
+	-Publican CSS overrides (overrides.css > common.css )
+
+============================================================*/
+
+
+
+/* ------------------------------------------------------------ 
+/* =Presets 
+------------------------------------------------------------ */
+html,body,div,span,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,abbr,address,cite,code,del,dfn,em,img,ins,kbd,q,samp,small,strong,sub,sup,var,b,i,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td,article,aside,canvas,details,figcaption,figure,footer,header,hgroup,menu,nav,section,summary,time,mark,audio,video{border:0;font-size:100%;font:inherit;vertical-align:baseline;margin:0;padding:0;}article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section{display:block;}blockquote,q{quotes:none;}blockquote:before,blockquote:after,q:before,q:after{content:none;}ins{background-color:#ff9;color:#000;text-decoration:none;}mark{background-color:#ff9;color:#000;font-style:italic;font-weight:700;}del{text-decoration:line-through;}abbr[title],dfn[title]{border-bottom:1px dotted;cursor:help;}table{border-collapse:collapse;border-spacing:0;}hr{display:block;height:1px;border:0;border-top:1px solid #ccc;margin:1em 0;padding:0;}input,select{vertical-align:middle;}body{font:13px/1.231 sans-serif;font-size:small;}select,input,textarea,button{font:99% sans-serif;}pre,code,kbd,samp{font-family:monospace, sans-serif;}html{overflow-y:scroll;}a:hover,a:active{outline:none;}ul,ol{margin-left:2em;}ol{list-style-type:decimal;}nav ul,nav li{list-style:none;list-style-image:none;margin:0;}small{font-size:85%;}td{vertical-align:top;}sub,sup{font-size:75%;line-height:0;position:relative;}sup{top:-.5em;}sub{bottom:-.25em;}pre{white-space:pre-wrap;word-wrap:break-word;padding:15px;}textarea{overflow:auto;}.ie6 legend,.ie7 legend{margin-left:-7px;}input[type=checkbox]{vertical-align:bottom;}.ie7 input[type=checkbox]{vertical-align:baseline;}label,input[type=button],input[type=submit],input[type=image],button{cursor:pointer;}button,input,select,textarea{margin:0;}input:invalid,textarea:invalid{border-radius:1px;-moz-box-shadow:0 0 5px red;-webkit-box-shadow:0 0 5px red;box-shadow:0 0 5px red;}.no-boxshadow input:invalid,.no-boxshadow textarea:invalid{background-color:#f0dddd;}a:link{-webkit-tap-highlight-color:#FF5E99;}button{width:auto;overflow:visible;}.ie7 img{-ms-interpolation-mode:bicubic;}body,select,input,textarea{color:#444;}a,a:active,a:visited{color:#607890;}a:hover{color:#036;}strong,th,h1,h2,h3,h4,h5,h6{font-weight:700;}input[type=radio],.ie6 input{vertical-align:text-bottom;}::-moz-selection,::selection{background:#FF5E99;color:#fff;text-shadow:none;}
+
+
+
+/* ------------------------------------------------------------ 
+/* =Global Styles
+------------------------------------------------------------ */
+body { 
+	background: url('../images/background.png') repeat-x; 
+	font-family: 'ColaborateRegular',Arial,sans-serif; 
+	width: 976px;
+	margin: 0 auto;
+	max-width: none;
+}
+
+@font-face {
+    font-family: 'HelveticaNeueRoman';
+    src: url('../fonts/helveticaneueltstd-roman-webfont.eot');
+    src: url('../fonts/helveticaneueltstd-roman-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/helveticaneueltstd-roman-webfont.woff') format('woff'),
+         url('../fonts/helveticaneueltstd-roman-webfont.ttf') format('truetype'),
+         url('../fonts/helveticaneueltstd-roman-webfont.svg#HelveticaNeueLTStd55Roman') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'HelveticaNeueLight';
+    src: url('../fonts/helveticaneueltstd-lt-webfont.eot');
+    src: url('../fonts/helveticaneueltstd-lt-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/helveticaneueltstd-lt-webfont.woff') format('woff'),
+         url('../fonts/helveticaneueltstd-lt-webfont.ttf') format('truetype'),
+         url('../fonts/helveticaneueltstd-lt-webfont.svg#HelveticaNeueLTStd45Light') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'HelveticaNeueThin';
+    src: url('../fonts/helveticaneueltstd-th-webfont.eot');
+    src: url('../fonts/helveticaneueltstd-th-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/helveticaneueltstd-th-webfont.woff') format('woff'),
+         url('../fonts/helveticaneueltstd-th-webfont.ttf') format('truetype'),
+         url('../fonts/helveticaneueltstd-th-webfont.svg#HelveticaNeueLTStd35Thin') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+
+/* ------------------------------------------------------------ 
+/* =Elements
+------------------------------------------------------------ */
+a:link, a:visited {
+	color: #438CA5;
+}
+
+a:hover {
+	color: #1d5669;
+}
+
+.toc dl {
+	line-height: 20px;
+}
+
+h1, h2, h3, h4, h5, h6 {
+	color: #004B84;
+	font-family: 'HelveticaNeueLight', arial, sans-serif; font-weight: normal;
+}
+
+h1 { font-size: 24px; margin-bottom: 15px; }
+h2 { font-size: 22px; margin-bottom: 15px; }
+h3 { font-size: 20px; margin-bottom: 10px; }
+h4 { font-size: 18px; margin-bottom: 10px; }
+h5 { font-size: 16px; margin-bottom: 5px; }
+h6 { font-size: 14px; margin-bottom: 5px; }
+
+table {
+	border: 1px solid #e4e4e4;
+	margin: 10px 0;
+}
+
+table td {
+	padding: 0.55em 0.55em;
+	border: 1px solid #DCDCDC;
+	white-space: normal !important;
+}
+
+p, div.para, div.formalpara { line-height: 1.5em; }
+
+div.appendix .titlepage h1.title { padding-top: 0; }
+
+.docnav li.up, .docnav li.home {
+    margin: 0 1.5em;
+    position: relative;
+    top: 20px;
+}
+
+span.remark {
+	background-color: #ffff00;
+}
+
+.revhistory table th {
+	color:#a70000;
+}
+
+table {
+	border:1px solid #dcdcdc;
+}
+
+table th {
+	background-color:#357ba2;
+}
+
+table tr.even td {
+	background-color:#f5f5f5;
+}
+
+#title a {
+	height:54px;
+}
+
+span.productname, span.productnumber { 
+	color: #dbdbdb;
+	font-weight: normal;
+}
+
+code { 
+	white-space: normal !important; 
+}
+
+div.producttitle span {
+	color: #fff;
+} 
+
+/* ------------------------------------------------------------ 
+/* =Utilities
+------------------------------------------------------------ */
+.edition {
+	color: #a70000;
+}
+
+.term {
+	color:#a70000;
+}
+
+.producttitle {
+	background: #800 url('../images/h1-bg.png') top left repeat;
+}
+
+
+
+/* ------------------------------------------------------------ 
+/* =Layout
+------------------------------------------------------------ */
+
+#title {
+	margin-top: 15px;
+	height: 60px;
+}
+
+#title a.left img {
+    border: none;
+    float: left;
+    margin: 0;
+}
+
+#title a.right img {
+    border: medium none;
+    float: right;
+    margin: 0;
+	margin-top: -9px;
+}
+
+.toc {
+	float: left;
+	width: 25%;
+	margin: 10px 0 0 25px;
+}
+
+div.chapter .toc {
+	float: none;
+}
+
+div.book {
+	background: url('../images/book-bg.png') no-repeat scroll 0 0 transparent;
+	min-height: 600px;
+	width: 976px;
+	overflow: auto;
+	margin-top: 15px;
+	
+}
+
+div.book div.titlepage {
+	float: right;
+	width: 65%;
+	margin-top: 20px;
+	padding: 20px;
+	overflow: auto;
+	margin: 4px;
+}
+
+div.chapter, div.section, div.appendix, div.index {
+	background: #FFFFFF;
+    border: 1px solid #E2E3E5;
+    border-radius: 5px 5px 5px 5px;
+    box-shadow: 2px 2px 2px #AFB0B3;
+	margin-top: 20px;
+	padding: 30px;
+}
+
+div.section {
+	overflow: auto;
+}
+
+ul.docnav {
+	margin: 0;
+	padding: 0;
+	margin-top: 20px;
+	min-height: 20px;
+}
+
+div.address span {
+	display: block;
+}
+
+div.address span.city,  div.address span.state { display: inline; }
+
+
