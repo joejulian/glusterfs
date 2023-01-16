@@ -118,6 +118,7 @@ enum argp_option_keys {
     ARGP_FUSE_INVALIDATE_LIMIT_KEY = 195,
     ARGP_FUSE_DISPLAY_NAME_KEY = 196,
     ARGP_IO_ENGINE_KEY = 197,
+    ARGP_FUSE_SETLK_HANDLE_INTERRUPT_KEY = 198,
 };
 
 struct _gfd_vol_top_priv {
