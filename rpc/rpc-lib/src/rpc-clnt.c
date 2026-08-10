@@ -47,7 +47,8 @@ _is_lock_fop(struct saved_frame *sframe)
     int fop = 0;
 
     if (SFRAME_GET_PROGNUM(sframe) == GLUSTER_FOP_PROGRAM &&
-        SFRAME_GET_PROGVER(sframe) == GLUSTER_FOP_VERSION)
+        (SFRAME_GET_PROGVER(sframe) == GLUSTER_FOP_VERSION ||
+         SFRAME_GET_PROGVER(sframe) == GLUSTER_FOP_VERSION_v2))
         fop = SFRAME_GET_PROCNUM(sframe);
 
     return ((fop == GFS3_OP_LK) || (fop == GFS3_OP_INODELK) ||
@@ -321,7 +322,13 @@ saved_frames_unwind(struct saved_frames *saved_frames)
         0,
     };
 
-    list_splice_init(&saved_frames->lk_sf.list, &saved_frames->sf.list);
+    /*
+     * A FUSE lock interrupt sends an ordinary FGETXATTR request and then
+     * synchronously waits for it from the LK callback.  Unwind ordinary
+     * requests first so a disconnect cannot strand that dependency behind
+     * the callback that is waiting for it.
+     */
+    list_append_init(&saved_frames->lk_sf.list, &saved_frames->sf.list);
 
     list_for_each_entry_safe(trav, tmp, &saved_frames->sf.list, list)
     {
@@ -432,11 +439,17 @@ rpc_clnt_fill_request_info(struct rpc_clnt *clnt, rpc_request_info_t *info)
     pthread_mutex_unlock(&clnt->conn.lock);
 
     if (ret == -1) {
-        gf_log(clnt->conn.name, GF_LOG_CRITICAL,
-               "cannot lookup the saved "
-               "frame corresponding to xid (%d)",
+        /*
+         * The request may have timed out while its reply was in flight.  Its
+         * record framing is still valid, so let the transport consume the
+         * reply through the non-vectored path and discard it at lookup rather
+         * than disconnecting unrelated requests on the same connection.
+         */
+        gf_log(clnt->conn.name, GF_LOG_WARNING,
+               "reply for unknown or expired xid (%" PRIu32
+               ") will be discarded",
                info->xid);
-        goto out;
+        return 0;
     }
 
     info->prognum = saved_frame.rpcreq->prog->prognum;
@@ -446,7 +459,6 @@ rpc_clnt_fill_request_info(struct rpc_clnt *clnt, rpc_request_info_t *info)
     info->rsp = saved_frame.rsp;
 
     ret = 0;
-out:
     return ret;
 }
 
