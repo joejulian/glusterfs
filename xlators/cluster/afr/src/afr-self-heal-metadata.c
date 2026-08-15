@@ -78,6 +78,13 @@ __afr_selfheal_metadata_do(call_frame_t *frame, xlator_t *this, inode_t *inode,
                               NULL);
         if (old_xattr) {
             afr_delete_ignorable_xattrs(old_xattr);
+            /*
+             * The namespace marker is immutable once set. Preserve it on
+             * the sink while removing the other stale xattrs; the source
+             * setxattr below will keep or restore the marker.
+             */
+            if (dict_get_sizen(xattr, GF_NAMESPACE_KEY))
+                (void)dict_del_sizen(old_xattr, GF_NAMESPACE_KEY);
             ret = syncop_removexattr(priv->children[i], &loc, "", old_xattr,
                                      NULL);
             if (ret)
