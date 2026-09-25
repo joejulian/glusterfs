@@ -99,7 +99,13 @@ jobs:
         run: |
           mkdir -p ci-artifacts
           test -f /tmp/gluster_regression.txt && cp /tmp/gluster_regression.txt ci-artifacts/ || true
-          test -d /var/log/glusterfs && cp -a /var/log/glusterfs ci-artifacts/ || true
+          if command -v gluster >/dev/null 2>&1; then
+            log_dir="$(gluster --print-logdir)"
+            if [ -d "$log_dir" ]; then
+              sudo cp -a "$log_dir" ci-artifacts/glusterfs
+              sudo chown -R "$(id -u):$(id -g)" ci-artifacts/glusterfs
+            fi
+          fi
 
       - name: Upload artifacts
         if: always()

@@ -111,3 +111,12 @@ These workflows cover the GitHub-hosted subset of the old CI model:
 
 They do not attempt to recreate the former dedicated multi-host regression
 hardware inside GitHub-hosted Actions.
+
+## Installation paths
+
+Ubuntu jobs build with `/usr/local` as the prefix. Tests must use the configured
+`GLUSTERD_WORKDIR` from `tests/env.rc`, rather than assuming a distribution's
+`/var/lib/glusterd` path. The smoke job runs the user-translator regression
+first to catch configuration-path mismatches before the full smoke selection.
+Artifact collection asks the installed `gluster --print-logdir` for its log
+location and includes the per-test diagnostic archives generated there.
