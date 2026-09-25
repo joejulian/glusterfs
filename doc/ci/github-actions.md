@@ -116,7 +116,11 @@ hardware inside GitHub-hosted Actions.
 
 Ubuntu jobs build with `/usr/local` as the prefix. Tests must use the configured
 `GLUSTERD_WORKDIR` from `tests/env.rc`, rather than assuming a distribution's
-`/var/lib/glusterd` path. The smoke job runs the user-translator regression
-first to catch configuration-path mismatches before the full smoke selection.
-Artifact collection asks the installed `gluster --print-logdir` for its log
+`/var/lib/glusterd` path. The smoke job runs the user-translator, volfile and snapshot-scheduler regressions
+first to catch environment mismatches before the full smoke selection. The full
+selection continues after failures so one run reports all failures, while retaining
+a nonzero exit status.
+Ubuntu dependencies include the SELinux inspection tools used by snapshot
+scheduling, including on hosts where SELinux is disabled.
+Artifact collection loads the configured runtime environment, then asks the installed `gluster --print-logdir` for its log
 location and includes the per-test diagnostic archives generated there.

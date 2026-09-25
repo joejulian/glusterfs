@@ -60,13 +60,18 @@ jobs:
             lvm2 \
             nfs-common \
             pkg-config \
+            policycoreutils \
             python3 \
             python3-pip \
             rpcsvc-proto \
+            selinux-utils \
             sqlite3 \
             uuid-dev \
             xfsprogs \
             yajl-tools
+
+      - name: Test snapshot scheduler SELinux handling
+        run: python3 tests/utils/test_snap_scheduler.py
 
       - name: Configure build
         run: |
@@ -84,8 +89,8 @@ jobs:
             sudo -E make install
           fi
 
-      - name: Verify configured state directory
-        run: sudo -E ./run-tests.sh tests/basic/user-xlator.t tests/basic/volfile-sanity.t
+      - name: Verify repaired regressions
+        run: sudo -E ./run-tests.sh tests/basic/user-xlator.t tests/basic/volfile-sanity.t tests/basic/volume-snap-scheduler.t
 
       - name: Run smoke tests
         run: |
@@ -151,9 +156,9 @@ jobs:
           )
 
           if [ "$(id -u)" -eq 0 ]; then
-            ./run-tests.sh "${smoke_tests[@]}"
+            ./run-tests.sh -c "${smoke_tests[@]}"
           else
-            sudo -E ./run-tests.sh "${smoke_tests[@]}"
+            sudo -E ./run-tests.sh -c "${smoke_tests[@]}"
           fi
 
       - name: Collect artifacts

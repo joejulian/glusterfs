@@ -62,9 +62,11 @@ jobs:
             lvm2 \
             nfs-common \
             pkg-config \
+            policycoreutils \
             python3 \
             python3-pip \
             rpcsvc-proto \
+            selinux-utils \
             sqlite3 \
             uuid-dev \
             xfsprogs \
