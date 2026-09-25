@@ -56,6 +56,7 @@ jobs:
             liburing-dev \
             liburcu-dev \
             libxml2-dev \
+            libxml2-utils \
             libxxhash-dev \
             lvm2 \
             nfs-common \
