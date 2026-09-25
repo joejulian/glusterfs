@@ -557,7 +557,7 @@ def get_bool_val():
                 "cron_system_cronjob_use_shares"]
     p2 = subprocess.Popen(grep_cmd, stdin=p1.stdout,
                           stdout=subprocess.PIPE,
-                          stderr=subprocess.PIPE)
+                          stderr=subprocess.PIPE, universal_newlines=True)
 
     p1.stdout.close()
     output, err = p2.communicate()
@@ -579,7 +579,7 @@ def get_selinux_status():
 
     try:
         p1 = subprocess.Popen(getenforce_cli, stdout=subprocess.PIPE,
-                              stderr=subprocess.PIPE)
+                              stderr=subprocess.PIPE, universal_newlines=True)
     except OSError as oserr:
         log.error("Failed to run the command \"getenforce\". Error: %s" %\
                   oserr)
