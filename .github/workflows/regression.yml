@@ -99,6 +99,9 @@ jobs:
         run: |
           mkdir -p ci-artifacts
           test -f /tmp/gluster_regression.txt && cp /tmp/gluster_regression.txt ci-artifacts/ || true
+          if [ -f tests/env.rc ]; then
+            source tests/env.rc
+          fi
           if command -v gluster >/dev/null 2>&1; then
             log_dir="$(gluster --print-logdir)"
             if [ -d "$log_dir" ]; then

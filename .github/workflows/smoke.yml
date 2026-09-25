@@ -85,7 +85,7 @@ jobs:
           fi
 
       - name: Verify configured state directory
-        run: sudo -E ./run-tests.sh tests/basic/user-xlator.t
+        run: sudo -E ./run-tests.sh tests/basic/user-xlator.t tests/basic/volfile-sanity.t
 
       - name: Run smoke tests
         run: |
@@ -161,6 +161,9 @@ jobs:
         run: |
           mkdir -p ci-artifacts
           test -f /tmp/gluster_regression.txt && cp /tmp/gluster_regression.txt ci-artifacts/ || true
+          if [ -f tests/env.rc ]; then
+            source tests/env.rc
+          fi
           if command -v gluster >/dev/null 2>&1; then
             log_dir="$(gluster --print-logdir)"
             if [ -d "$log_dir" ]; then
